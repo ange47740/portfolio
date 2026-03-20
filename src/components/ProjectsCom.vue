@@ -11,14 +11,6 @@ function openModal(project) {
   modalOpen.value = true
 }
 
-function openCover(project) {
-  if (project && project.link) {
-    window.open(project.link, '_blank')
-  } else {
-    openModal(project)
-  }
-}
-
 function closeModal() {
   modalOpen.value = false
 }
@@ -37,91 +29,222 @@ function prevImage() {
 
 const projects = [
   {
-    title: '企業官網',
-    client: '盈米科技',
-    tag: ['Vue3', 'Tailwind CSS', 'PHP'],
+    title: '盈米科技',
+    tag: ['Web Development', 'UI/UX Design', 'Vue3', 'Tailwind CSS', 'PHP', 'Figma'],
     summary:
-      '為公司設計並開發的官方網站，主要目的是展示公司形象、服務項目與聯絡方式。整體風格偏向未來感與冷靜簡約，強調專業與科技形象。',
-    fun: '- 公司介紹 / 服務項目 / 案例展示 / 聯絡表單',
-    cover: '/imgs/projects/1/0.JPG',
+      '盈米科技官網改版重塑，重新規劃品牌視覺與資訊架構，以未來感與冷靜簡約風格強化專業與科技形象。',
+    cover: '/imgs/projects/1/0.jpg',
     link: 'https://twyingmi.com/',
   },
   {
-    title: '簽呈系統',
-    client: '寶豐集團',
-    tag: ['Vue3', ' Bootstrap', 'SCSS', '串接API'],
+    title: '待產活力站',
+    tag: ['Web Development', 'UI/UX Design', 'Vue3', 'Bootstrap', 'SCSS', 'Figma'],
     summary:
-      '此為專為寶豐集團客製化之簽呈系統，包含了旗下各公司的需求且操作直覺、簡單易用，使簽呈流程更流暢。',
-    fun: '- 會員系統 / 申請簽呈 / 申請列表 / 簽核 / 簽核進度 / 篩選與搜尋 / 圖片上傳與瀏覽 / 列印',
-    cover: '/imgs/projects/2/0.JPG',
-    images: [
-      { src: '/imgs/projects/2/1.JPG', title: '首頁設計' },
-      { src: '/imgs/projects/2/2.JPG', title: '產品頁' },
-      { src: '/imgs/projects/2/3.JPG', title: '行動版設計' },
-    ],
+      '為待產婦女設計的互動式網站，透過互動小遊戲與示範影片，協助使用者理解孕期運動的重要性並探索合適的運動項目。',
+    cover: '/imgs/projects/5/0.jpg',
+    link: 'https://www.readysetbaby.com.tw/',
   },
   {
-    title: '選材系統',
-    client: '松華實業',
-    tag: ['jQuery', 'Bootstrap', '串接API', 'Looker Studio', 'Google Analytics'],
+    title: '松華選材系統',
+    tag: [
+      'Front-end Development',
+      'UI/UX Design',
+      'jQuery',
+      'Bootstrap',
+      'RESTful API',
+      'Looker Studio',
+      'Google Analytics',
+    ],
     summary:
-      '松華實業為室內裝飾材供應商，目標為製作一個可選擇場景、置換不同部位材質的選材系統，讓顧客可以預先模擬、自由搭配並立即看到整體效果。',
-    fun: '- 多語系 / 使用教學 / 場景切換 / 部位切換 / 材質切換 / 簡易篩選 / 完整篩選 / 搜尋 / 下載完成圖 / 數據分析',
-    cover: '/imgs/projects/1/0.JPG',
+      '提供材質即時置換與場景模擬功能，協助使用者在實裝前預覽整體效果，降低選材誤差並提升決策效率。',
+    cover: '/imgs/projects/3/0.jpg',
     link: 'https://www.sunflowerspace.com.tw/',
   },
   {
-    title: 'XR作品展示平台',
-    client: '國立臺灣師範大學',
-    tag: ['Vue3', 'Bootstrap', 'SCSS', '串接API'],
-    summary: '學生能將XR作品上傳至此平台進行分享。',
-    fun: '- 會員系統 / 作品分類 / 作品列表 / 上傳作品',
-    cover: '/imgs/projects/2/0.JPG',
-    images: [
-      { src: '/imgs/projects/2/1.JPG', title: '首頁設計' },
-      { src: '/imgs/projects/2/2.JPG', title: '產品頁' },
-      { src: '/imgs/projects/2/3.JPG', title: '行動版設計' },
-    ],
-  },
-  {
-    title: '環景地板置換展示',
-    client: '台昌彩藝',
-    tag: ['jQuery', 'Bootstrap', 'Pano2VR'],
+    title: 'TCP環景地板置換展示',
+    tag: ['Web Development', 'UI/UX Design', 'jQuery', 'Bootstrap', 'Pano2VR', 'Figma'],
     summary:
-      '台昌彩藝為地板材質製造商，希望利用環景導覽身歷其境的特點，提升品牌形象與客戶瀏覽體驗。',
-    fun: '- 場景列表 / 材質列表 / 材質分類與篩選 / 環景導覽 / 環景材質切換 / 地板拼接方式切換 / 場景切換 / 搜尋',
-    cover: '/imgs/projects/1/0.JPG',
+      '以環景導覽結合地板材質展示，讓使用者沉浸式體驗不同空間與材質搭配，強化品牌印象並提升選購體驗。',
+    cover: '/imgs/projects/4/0.jpg',
     link: 'https://tcpfilm360.com/',
   },
   {
-    title: '待產活力站',
-    client: '國立臺北護理健康大學',
-    tag: ['Vue3', 'Bootstrap', 'SCSS'],
+    title: '寶豐簽呈系統',
+    tag: [
+      'Front-end Development',
+      'UI/UX Design',
+      'Vue3',
+      ' Bootstrap',
+      'SCSS',
+      'RESTful API',
+      'Figma',
+    ],
     summary:
-      '此網站為專為待產婦女所設計，產婦能藉由此網站認知到運動對於產婦的重要性，並透過翻翻樂的方式取得不同的運動項目。',
-    fun: '- 待產活動分類 / 翻翻樂模式 / localStorage記錄翻過之卡片 / 活動簡介 / 其他網站資源',
-    cover: '/imgs/projects/2/0.JPG',
-    link: 'https://www.readysetbaby.com.tw/',
+      '為寶豐集團客製化設計的簽呈系統，整合多公司流程與權限邏輯，透過清楚的操作流程設計，加速簽核效率並降低使用門檻。',
+    cover: '/imgs/projects/2/0.jpg',
+    images: [
+      { src: '/imgs/projects/2/0.png', title: '登入' },
+      { src: '/imgs/projects/2/1.png', title: '待簽核列表' },
+      { src: '/imgs/projects/2/3.png', title: '待簽核簽呈' },
+      { src: '/imgs/projects/2/2.png', title: '全部簽呈列表' },
+      { src: '/imgs/projects/2/4.png', title: '瀏覽簽呈' },
+      { src: '/imgs/projects/2/5.png', title: '申請簽呈' },
+    ],
+  },
+  {
+    title: '桌遊協會管理系統',
+    tag: ['UI/UX Design', 'Figma'],
+    summary:
+      '為桌遊協會設計的會員與桌遊管理系統，包含會員資料管理、桌遊借還管理、開桌計時與分潤設定等功能，提升協會運營效率。',
+    cover: '/imgs/projects/6/0.jpg',
+    images: [
+      { src: '/imgs/projects/6/1.jpg', title: '登入' },
+      { src: '/imgs/projects/6/2.jpg', title: '註冊' },
+      { src: '/imgs/projects/6/3.jpg', title: '忘記密碼' },
+      { src: '/imgs/projects/6/4.png', title: '會員列表' },
+      { src: '/imgs/projects/6/5.png', title: '新增會員' },
+      { src: '/imgs/projects/6/6.png', title: '編輯會員資料' },
+      { src: '/imgs/projects/6/7.png', title: '綁定的會員' },
+      { src: '/imgs/projects/6/8.png', title: '開桌列表' },
+      { src: '/imgs/projects/6/9.png', title: '設定桌子' },
+      { src: '/imgs/projects/6/10.png', title: '開桌計時' },
+      { src: '/imgs/projects/6/11.png', title: '停止計時' },
+      { src: '/imgs/projects/6/12.png', title: '分潤設定' },
+      { src: '/imgs/projects/6/13.png', title: '手機-登入' },
+      { src: '/imgs/projects/6/14.png', title: '手機 - 會員條碼' },
+      { src: '/imgs/projects/6/15.png', title: '手機 - 綁定的會員' },
+      { src: '/imgs/projects/6/16.png', title: '手機 - 編輯個人資料' },
+    ],
+  },
+  {
+    title: '3D 家具建材互動展示',
+    tag: ['Web Development', 'UI/UX Design', '3D Vista', 'Illustrator'],
+    summary:
+      '透過3D互動展示，讓使用者在虛擬空間中切換家具與建材配置，即時體驗不同設計風格與搭配效果。',
+    cover: '/imgs/projects/11/0.jpg',
+    link: 'https://storage.googleapis.com/yingmigcs/3D/Demo_3/index.htm',
+  },
+  {
+    title: '3D 汽車互動展示',
+    tag: ['Web Development', 'UI/UX Design', '3D Vista'],
+    summary: '以3D互動方式呈現汽車內外裝設計，讓使用者能 360 度檢視車輛細節與設計特色。',
+    cover: '/imgs/projects/12/0.jpg',
+    link: 'https://storage.googleapis.com/yingmigcs/3D/Demo_4_car/index.htm',
+  },
+  {
+    title: 'VR 蝙蝠車攔查訓練',
+    tag: ['UI/UX Design', 'Figma'],
+    summary:
+      '透過VR模擬真實攔查情境，讓使用者在安全環境中練習攔查流程與應對策略，提升實務操作熟練度與信心。',
+    cover: '/imgs/projects/7/0.jpg',
+    images: [
+      { src: '/imgs/projects/7/1.jpg', title: '控制器操作教學' },
+      { src: '/imgs/projects/7/2.jpg', title: '主選單' },
+      { src: '/imgs/projects/7/3.jpg', title: '選擇情境 - 剩餘土石方' },
+      { src: '/imgs/projects/7/4.jpg', title: '選擇情境 - 廢棄物' },
+      { src: '/imgs/projects/7/5.jpg', title: '問答' },
+      { src: '/imgs/projects/7/6.jpg', title: '問答' },
+      { src: '/imgs/projects/7/7.jpg', title: '問答' },
+      { src: '/imgs/projects/7/8.jpg', title: '完成選單' },
+      { src: '/imgs/projects/7/9.jpg', title: '輸入員工編號' },
+      { src: '/imgs/projects/7/10.jpg', title: '測驗結果' },
+      { src: '/imgs/projects/7/11.jpg', title: '作答記錄' },
+      { src: '/imgs/projects/7/12.jpg', title: '作答記錄' },
+      { src: '/imgs/projects/7/13.jpg', title: '歷史紀錄' },
+    ],
+  },
+  {
+    title: 'VR 防衛性駕駛訓練',
+    tag: ['UI/UX Design', 'Figma'],
+    summary:
+      '結合VR與實體駕駛模擬控制器，導入防衛性駕駛概念，提供沉浸式訓練體驗以提升駕駛安全意識與臨場反應能力。',
+    cover: '/imgs/projects/8/0.jpg',
+    images: [
+      { src: '/imgs/projects/8/1.jpg', title: '主選單' },
+      { src: '/imgs/projects/8/2.jpg', title: '選擇主題' },
+      { src: '/imgs/projects/8/3.jpg', title: '選擇模式' },
+      { src: '/imgs/projects/8/4.jpg', title: '駕駛操作教學' },
+      { src: '/imgs/projects/8/5.jpg', title: '車內按鈕' },
+      { src: '/imgs/projects/8/7.jpg', title: '完成顯示' },
+      { src: '/imgs/projects/8/8.jpg', title: '主題說明' },
+      { src: '/imgs/projects/8/11.jpg', title: '注意警告' },
+      { src: '/imgs/projects/8/9.jpg', title: '訓練完成' },
+      { src: '/imgs/projects/8/12.jpg', title: '防禦性駕駛介紹' },
+      { src: '/imgs/projects/8/10.jpg', title: 'Loading' },
+      { src: '/imgs/projects/8/6.jpg', title: '控制器操作教學' },
+    ],
+  },
+  {
+    title: 'VR 焊接訓練',
+    tag: ['UI/UX Design', 'Figma'],
+    summary:
+      '以VR模擬焊接訓練流程，讓使用者在安全環境中反覆練習操作技巧與檢定流程，提升實作熟練度與作業安全性。',
+    cover: '/imgs/projects/9/0.jpg',
+    images: [
+      { src: '/imgs/projects/9/1.jpg', title: '操作教學' },
+      { src: '/imgs/projects/9/2.jpg', title: '操作教學' },
+      { src: '/imgs/projects/9/3.jpg', title: '操作教學' },
+      { src: '/imgs/projects/9/4.jpg', title: '操作教學' },
+      { src: '/imgs/projects/9/5.jpg', title: '完成操作教學' },
+      { src: '/imgs/projects/9/6.jpg', title: '主選單' },
+      { src: '/imgs/projects/9/7.jpg', title: '選擇檢定位置' },
+      { src: '/imgs/projects/9/8.jpg', title: '測驗指示' },
+      { src: '/imgs/projects/9/9.jpg', title: '測驗中UI' },
+      { src: '/imgs/projects/9/10.jpg', title: '測驗結果' },
+      { src: '/imgs/projects/9/11.jpg', title: '測驗結果' },
+    ],
+    youtube: 'https://youtu.be/QNpk82-VvKk?si=n5J8PiCZgBV9ae4K',
+  },
+  {
+    title: 'VR 互動招生',
+    tag: ['UI/UX Design', 'Illustrator'],
+    summary:
+      '以遊戲化VR互動體驗結合系所特色，讓潛在學生在沉浸式情境中探索學習內容，提升招生體驗與記憶點。',
+    cover: '/imgs/projects/10/0.jpg',
+    images: [
+      { src: '/imgs/projects/10/1.jpg', title: '主選單' },
+      { src: '/imgs/projects/10/2.jpg', title: '設備說明' },
+      { src: '/imgs/projects/10/3.jpg', title: '開始遊戲' },
+      { src: '/imgs/projects/10/4.jpg', title: '遊戲說明' },
+      { src: '/imgs/projects/10/5.jpg', title: '玩家血條' },
+      { src: '/imgs/projects/10/6.jpg', title: '怪物血條' },
+      { src: '/imgs/projects/10/7.jpg', title: '下一階段遊戲說明' },
+      { src: '/imgs/projects/10/8.jpg', title: '遊戲結果' },
+    ],
+    youtube: 'https://youtu.be/KkACXC97mBE?si=xaGX3jQQ81g2ObnV',
   },
 ]
 </script>
 
 <template>
   <section id="projects" class="bg-white px-6 py-20">
-    <div class="mx-auto md:max-w-7xl">
+    <div class="container mx-auto">
       <h2 class="mb-12 text-center text-3xl font-semibold">Projects</h2>
-      <div class="mx-auto space-y-16">
-        <!-- :class="{ 'md:flex-row-reverse': idx % 2 === 0 }" -->
-        <div
-          v-for="(project, idx) in projects"
-          :key="idx"
-          class="flex flex-col items-center gap-8 md:flex-row"
-        >
+
+      <!-- ⭐ 兩欄式專案列表 -->
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div v-for="(project, idx) in projects" :key="idx" class="mt-5 flex flex-col">
+          <!-- 作品封面 -->
+          <div class="w-full overflow-hidden rounded-xl bg-gray-100">
+            <img :src="project.cover" :alt="project.title" class="w-full rounded-xl object-cover" />
+          </div>
+
           <!-- 文字內容 -->
-          <div class="md:w-1/2">
-            <p class="mb-2 text-sm text-gray-500">{{ project.client }}</p>
-            <h3 class="mb-2 text-2xl font-semibold">{{ project.title }}</h3>
-            <div class="mb-2 flex flex-wrap gap-3">
+          <div class="mt-6">
+            <div class="mb-4 flex items-center gap-2">
+              <h3 class="text-2xl font-semibold">{{ project.title }}</h3>
+              <a
+                v-if="project.youtube"
+                :href="project.youtube"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center text-red-600 transition-opacity hover:text-red-700 hover:opacity-80"
+                aria-label="YouTube"
+              >
+                <font-awesome-icon :icon="['fab', 'youtube']" class="text-2xl" />
+              </a>
+            </div>
+            <div class="mb-4 flex flex-wrap gap-3">
               <span
                 v-for="tag in project.tag"
                 :key="tag"
@@ -130,36 +253,33 @@ const projects = [
                 {{ tag }}
               </span>
             </div>
-            <p class="mb-3 leading-relaxed text-gray-700">{{ project.summary }}</p>
-            <p class="mb-3 leading-relaxed text-gray-700">{{ project.fun }}</p>
 
-            <a
-              v-if="project.link"
-              :href="project.link"
-              target="_blank"
-              class="inline-block rounded-full bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
-            >
-              前往網站
-            </a>
-            <button
-              v-else
-              @click="openModal(project)"
-              class="inline-block cursor-pointer rounded-full bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
-            >
-              查看專案
-            </button>
+            <p class="mb-4 leading-relaxed text-gray-700">
+              {{ project.summary }}
+            </p>
+            <div>
+              <a
+                v-if="project.link"
+                :href="project.link"
+                target="_blank"
+                class="text-lg font-bold underline"
+              >
+                前往網站
+              </a>
+              <button
+                v-else
+                @click="openModal(project)"
+                class="cursor-pointer text-lg font-bold underline"
+              >
+                查看專案
+              </button>
+            </div>
           </div>
-          <!-- 封面圖 -->
-          <img
-            :src="project.cover"
-            :alt="project.title"
-            class="w-full cursor-pointer rounded-lg object-cover shadow-lg md:w-1/2"
-            @click="openCover(project)"
-          />
         </div>
       </div>
     </div>
 
+    <!-- Modal -->
     <div
       v-if="modalOpen"
       class="animate-fadeIn fixed inset-0 z-50 items-center justify-center bg-black/70 text-white backdrop-blur-sm"
@@ -168,15 +288,26 @@ const projects = [
       <div
         class="animate-zoomIn animate-duration-500 flex h-full w-full flex-col overflow-hidden shadow-lg"
       >
-        <!-- 標題列 -->
         <div class="flex items-center justify-between p-4">
-          <h3 class="text-lg font-semibold">{{ selectedProject?.title }}</h3>
+          <div class="flex items-center gap-3">
+            <h3 class="text-lg font-semibold">{{ selectedProject?.title }}</h3>
+            <a
+              v-if="selectedProject?.youtube"
+              :href="selectedProject.youtube"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-red-400 hover:text-red-500"
+              aria-label="YouTube"
+            >
+              <font-awesome-icon :icon="['fab', 'youtube']" />
+            </a>
+          </div>
           <button @click="closeModal" class="cursor-pointer text-white/50 hover:text-white/100">
             ✕
           </button>
         </div>
 
-        <!-- 主圖區 -->
+        <!-- 大圖 -->
         <div class="relative flex flex-1 flex-col items-center justify-center p-4">
           <img
             :key="selectedProject?.images[currentIndex].src"
@@ -187,18 +318,21 @@ const projects = [
             {{ selectedProject?.images[currentIndex].title }}
           </p>
 
-          <!-- 左右切換按鈕 -->
           <button
             @click="prevImage"
-            class="absolute top-1/2 left-2 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white hover:bg-black"
-          ></button>
+            class="absolute top-1/2 left-2 h-10 w-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white hover:bg-black"
+          >
+            <font-awesome-icon icon="fa-solid fa-chevron-left" />
+          </button>
           <button
             @click="nextImage"
-            class="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white hover:bg-black"
-          ></button>
+            class="absolute top-1/2 right-2 h-10 w-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white hover:bg-black"
+          >
+            <font-awesome-icon icon="fa-solid fa-chevron-right" />
+          </button>
         </div>
 
-        <!-- 縮圖列 -->
+        <!-- 縮圖 -->
         <div class="flex gap-2 overflow-x-auto px-4 py-3">
           <div
             v-for="(img, i) in selectedProject?.images"
@@ -212,7 +346,7 @@ const projects = [
               class="h-20 w-28 rounded-md border-2 object-cover transition-all duration-200"
               :class="
                 i === currentIndex
-                  ? 'scale-105 border-orange-500'
+                  ? 'scale-105 border-[#00e3e7]'
                   : 'border-transparent opacity-70 hover:opacity-100'
               "
             />

@@ -67,8 +67,8 @@ function delay(ms) {
       class="absolute top-0 right-0 flex h-full w-full max-w-3xl items-start md:right-12 md:items-center"
     >
       <img
-        src="/imgs/me_2.jpg"
-        alt="Kabir Masud"
+        src="/imgs/me.jpg"
+        alt=""
         class="animate-in fade-in absolute top-[76px] left-[20px] h-[440px] w-[220px] object-cover object-bottom shadow-[20px_10px_0_rgba(205,204,203,0.5)] duration-1000 md:static md:h-[600px] md:w-[300px]"
       />
 
