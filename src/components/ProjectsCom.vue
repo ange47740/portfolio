@@ -2,10 +2,9 @@
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Thumbs, Navigation, Keyboard } from 'swiper/modules'
+import { Navigation, Keyboard } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
 
 onMounted(() => {
   gsap.utils.toArray('.project-card').forEach((card, i) => {
@@ -22,15 +21,26 @@ onMounted(() => {
 
 const modalOpen = ref(false)
 const selectedProject = ref(null)
-const thumbsSwiper = ref(null)
+const activeIndex = ref(0)
+const mainSwiper = ref(null)
 
-function setThumbsSwiper(swiper) {
-  thumbsSwiper.value = swiper
+function setMainSwiper(swiper) {
+  mainSwiper.value = swiper
+}
+
+function onSlideChange(swiper) {
+  activeIndex.value = swiper.activeIndex
+}
+
+function goToSlide(index) {
+  activeIndex.value = index
+  mainSwiper.value?.slideTo(index)
 }
 
 function openModal(project) {
   selectedProject.value = project
-  thumbsSwiper.value = null
+  activeIndex.value = 0
+  mainSwiper.value = null
   modalOpen.value = true
 }
 
@@ -319,12 +329,13 @@ const projects = [
 
         <!-- 主 Swiper -->
         <Swiper
-          :modules="[Navigation, Thumbs, Keyboard]"
+          :modules="[Navigation, Keyboard]"
           :navigation="true"
           :keyboard="{ enabled: true }"
-          :thumbs="{ swiper: thumbsSwiper }"
           :space-between="10"
           class="main-swiper min-h-0 w-full flex-1"
+          @swiper="setMainSwiper"
+          @slide-change="onSlideChange"
         >
           <SwiperSlide
             v-for="img in selectedProject?.images"
@@ -337,29 +348,19 @@ const projects = [
           </SwiperSlide>
         </Swiper>
 
-        <!-- 縮圖 Swiper -->
-        <Swiper
-          :modules="[Thumbs]"
-          watch-slides-progress
-          :slides-per-view="'auto'"
-          :space-between="8"
-          class="thumbs-swiper w-full flex-shrink-0 overflow-visible px-4 py-3"
-          @swiper="setThumbsSwiper"
-        >
-          <SwiperSlide
-            v-for="img in selectedProject?.images"
+        <!-- 縮圖列 -->
+        <div class="flex w-full flex-shrink-0 gap-2 overflow-x-auto px-4 py-3">
+          <img
+            v-for="(img, i) in selectedProject?.images"
             :key="img.src"
-            style="width: 112px"
-            class="cursor-pointer"
-          >
-            <img
-              :src="img.src"
-              :alt="img.title"
-              loading="lazy"
-              class="h-20 w-28 rounded-md border-2 border-transparent object-cover opacity-60 transition-all duration-200"
-            />
-          </SwiperSlide>
-        </Swiper>
+            :src="img.src"
+            :alt="img.title"
+            loading="lazy"
+            class="h-20 w-28 flex-shrink-0 cursor-pointer rounded-md border-2 object-cover transition-all duration-200"
+            :class="activeIndex === i ? 'scale-105 border-[#00e3e7] opacity-100' : 'border-transparent opacity-60 hover:opacity-90'"
+            @click="goToSlide(i)"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -389,9 +390,11 @@ const projects = [
   width: 20px !important;
   height: 20px !important;
 }
-/* 縮圖列允許上下溢出，讓 scale 不被裁切 */
+/* 縮圖列：clip 左右、上下留空間給 scale */
+.thumbs-swiper {
+  overflow: hidden !important;
+}
 .thumbs-swiper :deep(.swiper-wrapper) {
-  overflow: visible;
   padding: 6px 0;
 }
 .thumbs-swiper :deep(.swiper-slide-thumb-active img) {
