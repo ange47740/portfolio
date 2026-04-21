@@ -312,7 +312,7 @@ const projects = [
               <font-awesome-icon :icon="['fab', 'youtube']" />
             </a>
           </div>
-          <button @click="closeModal" class="cursor-pointer text-white/50 hover:text-white/100">
+          <button @click="closeModal" class="cursor-pointer text-xl text-white/50 hover:text-white/100">
             ✕
           </button>
         </div>
