@@ -1,30 +1,41 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { gsap } from 'gsap'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Thumbs, Navigation, Keyboard } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
+
+onMounted(() => {
+  gsap.utils.toArray('.project-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 88%' },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      delay: i % 2 === 1 ? 0.15 : 0,
+      ease: 'power3.out',
+    })
+  })
+})
 
 const modalOpen = ref(false)
 const selectedProject = ref(null)
-const currentIndex = ref(0)
+const thumbsSwiper = ref(null)
+
+function setThumbsSwiper(swiper) {
+  thumbsSwiper.value = swiper
+}
 
 function openModal(project) {
   selectedProject.value = project
-  currentIndex.value = 0
+  thumbsSwiper.value = null
   modalOpen.value = true
 }
 
 function closeModal() {
   modalOpen.value = false
-}
-
-function nextImage() {
-  if (!selectedProject.value) return
-  currentIndex.value = (currentIndex.value + 1) % selectedProject.value.images.length
-}
-
-function prevImage() {
-  if (!selectedProject.value) return
-  currentIndex.value =
-    (currentIndex.value - 1 + selectedProject.value.images.length) %
-    selectedProject.value.images.length
 }
 
 const projects = [
@@ -223,10 +234,10 @@ const projects = [
 
       <!-- ⭐ 兩欄式專案列表 -->
       <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
-        <div v-for="(project, idx) in projects" :key="idx" class="mt-5 flex flex-col">
+        <div v-for="(project, idx) in projects" :key="idx" class="project-card mt-5 flex flex-col">
           <!-- 作品封面 -->
           <div class="w-full overflow-hidden rounded-xl bg-gray-100">
-            <img :src="project.cover" :alt="project.title" class="w-full rounded-xl object-cover" />
+            <img :src="project.cover" :alt="project.title" loading="lazy" class="w-full rounded-xl object-cover" />
           </div>
 
           <!-- 文字內容 -->
@@ -282,13 +293,12 @@ const projects = [
     <!-- Modal -->
     <div
       v-if="modalOpen"
-      class="animate-fadeIn fixed inset-0 z-50 items-center justify-center bg-black/70 text-white backdrop-blur-sm"
+      class="animate-fadeIn fixed inset-0 z-50 flex flex-col bg-black/90 text-white backdrop-blur-sm"
       @click.self="closeModal"
     >
-      <div
-        class="animate-zoomIn animate-duration-500 flex h-full w-full flex-col overflow-hidden shadow-lg"
-      >
-        <div class="flex items-center justify-between p-4">
+      <div class="flex h-full w-full flex-col overflow-hidden">
+        <!-- Header -->
+        <div class="flex flex-shrink-0 items-center justify-between p-4">
           <div class="flex items-center gap-3">
             <h3 class="text-lg font-semibold">{{ selectedProject?.title }}</h3>
             <a
@@ -307,52 +317,86 @@ const projects = [
           </button>
         </div>
 
-        <!-- 大圖 -->
-        <div class="relative flex flex-1 flex-col items-center justify-center p-4">
-          <img
-            :key="selectedProject?.images[currentIndex].src"
-            :src="selectedProject?.images[currentIndex].src"
-            class="animate-fadeIn max-h-[70vh] max-w-full rounded-lg object-contain"
-          />
-          <p class="py-2 text-center text-sm text-white">
-            {{ selectedProject?.images[currentIndex].title }}
-          </p>
-
-          <button
-            @click="prevImage"
-            class="absolute top-1/2 left-2 h-10 w-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white hover:bg-black"
+        <!-- 主 Swiper -->
+        <Swiper
+          :modules="[Navigation, Thumbs, Keyboard]"
+          :navigation="true"
+          :keyboard="{ enabled: true }"
+          :thumbs="{ swiper: thumbsSwiper }"
+          :space-between="10"
+          class="main-swiper min-h-0 w-full flex-1"
+        >
+          <SwiperSlide
+            v-for="img in selectedProject?.images"
+            :key="img.src"
           >
-            <font-awesome-icon icon="fa-solid fa-chevron-left" />
-          </button>
-          <button
-            @click="nextImage"
-            class="absolute top-1/2 right-2 h-10 w-10 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-white hover:bg-black"
-          >
-            <font-awesome-icon icon="fa-solid fa-chevron-right" />
-          </button>
-        </div>
+            <div class="flex h-full flex-col items-center justify-center px-12">
+              <img :src="img.src" :alt="img.title" loading="lazy" class="max-h-[65vh] max-w-full object-contain" />
+              <p class="mt-2 text-center text-sm text-white/70">{{ img.title }}</p>
+            </div>
+          </SwiperSlide>
+        </Swiper>
 
-        <!-- 縮圖 -->
-        <div class="flex gap-2 overflow-x-auto px-4 py-3">
-          <div
-            v-for="(img, i) in selectedProject?.images"
-            :key="i"
-            class="flex-shrink-0 cursor-pointer"
-            @click="currentIndex = i"
+        <!-- 縮圖 Swiper -->
+        <Swiper
+          :modules="[Thumbs]"
+          watch-slides-progress
+          :slides-per-view="'auto'"
+          :space-between="8"
+          class="thumbs-swiper w-full flex-shrink-0 overflow-visible px-4 py-3"
+          @swiper="setThumbsSwiper"
+        >
+          <SwiperSlide
+            v-for="img in selectedProject?.images"
+            :key="img.src"
+            style="width: 112px"
+            class="cursor-pointer"
           >
             <img
               :src="img.src"
               :alt="img.title"
-              class="h-20 w-28 rounded-md border-2 object-cover transition-all duration-200"
-              :class="
-                i === currentIndex
-                  ? 'scale-105 border-[#00e3e7]'
-                  : 'border-transparent opacity-70 hover:opacity-100'
-              "
+              loading="lazy"
+              class="h-20 w-28 rounded-md border-2 border-transparent object-cover opacity-60 transition-all duration-200"
             />
-          </div>
-        </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.main-swiper :deep(.swiper-wrapper) {
+  height: 100%;
+}
+.main-swiper :deep(.swiper-slide) {
+  height: 100%;
+}
+.main-swiper :deep(.swiper-button-prev),
+.main-swiper :deep(.swiper-button-next) {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-swiper :deep(.swiper-button-prev svg),
+.main-swiper :deep(.swiper-button-next svg) {
+  width: 20px !important;
+  height: 20px !important;
+}
+/* 縮圖列允許上下溢出，讓 scale 不被裁切 */
+.thumbs-swiper :deep(.swiper-wrapper) {
+  overflow: visible;
+  padding: 6px 0;
+}
+.thumbs-swiper :deep(.swiper-slide-thumb-active img) {
+  border-color: #00e3e7;
+  opacity: 1;
+  transform: scale(1.05);
+}
+</style>

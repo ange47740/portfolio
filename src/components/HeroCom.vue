@@ -5,7 +5,7 @@ const line1Left = 'Front-end '
 const line1Right = 'Developer'
 const line2Left = '& UI/UX '
 const line2Right = 'Designer'
-const line3 = 'Specializing in Vue.js and Responsive Web Design.'
+const line3 = 'Specializing in Vue.js, RWD & Multi-Platform UI/UX Design.'
 
 const line1LeftDisplay = ref('')
 const line1RightDisplay = ref('')
@@ -66,7 +66,7 @@ function delay(ms) {
         </div>
       </div>
 
-      <div class="relative mt-2.5 font-sans text-[18px] md:text-[40px]">
+      <div class="relative mt-2.5 font-sans text-[18px] md:text-[32px]">
         <!-- 占位符：預留正確空間 -->
         <div class="invisible">
           <span class="text-[#82ddcf]">Specializing in Vue.js and Responsive Web Design.</span>
@@ -96,7 +96,7 @@ function delay(ms) {
         </h2>
         <button>
           <a
-            href="/files/WenYi_Hsu_Resume.pdf"
+            href="/files/Wenyi_Hsu_Resume.pdf"
             target="_blank"
             class="mt-4 inline-block rounded bg-[#82ddcf] px-4 py-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#5ac1b8]"
           >
