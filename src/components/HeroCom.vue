@@ -96,7 +96,7 @@ function delay(ms) {
         </h2>
         <button>
           <a
-            href="/files/Wenyi_Hsu_Resume.pdf"
+            href="/files/Wen_Yi_Hsu_Resume(web).pdf"
             target="_blank"
             class="mt-4 inline-block rounded bg-[#82ddcf] px-4 py-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#5ac1b8]"
           >
