@@ -5,9 +5,9 @@ import { createPinia } from 'pinia'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faChevronLeft, faChevronRight, faYoutube);
+library.add(faChevronLeft, faChevronRight, faYoutube, faLinkedin);
 
 const app = createApp(App)
 app.use(createPinia())

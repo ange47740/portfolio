@@ -24,7 +24,6 @@ onMounted(async () => {
   await typeText(line3, line3Display)
 })
 
-// 工具函式
 function typeText(text, targetRef) {
   return new Promise((resolve) => {
     let index = 0
@@ -46,10 +45,10 @@ function delay(ms) {
 
 <template>
   <section
-    class="relative flex min-h-screen flex-col items-center justify-center bg-white px-4 text-gray-900 md:px-20"
+    class="relative flex min-h-screen flex-col items-center justify-center bg-white px-4 text-gray-900 sm:px-10 md:px-20"
   >
     <h1
-      class="absolute bottom-5 left-5 z-20 text-[34px] leading-tight font-medium md:bottom-10 md:left-10 md:text-[94px]"
+      class="absolute bottom-5 left-5 z-20 text-[34px] leading-tight font-medium md:bottom-8 md:left-8 md:text-[58px] lg:bottom-10 lg:left-10 lg:text-[94px]"
     >
       <div>
         {{ line1LeftDisplay }}
@@ -57,21 +56,17 @@ function delay(ms) {
       </div>
 
       <div class="relative">
-        <!-- 占位符：預留正確空間 -->
         <div class="invisible"><span class="text-[#82ddcf]">& UI/UX </span> Designer</div>
-        <!-- 實際文字 -->
         <div class="absolute top-0 left-0">
           <span class="text-[#82ddcf]">{{ line2LeftDisplay }}</span
           ><span class="text-gray-900">{{ line2RightDisplay }}</span>
         </div>
       </div>
 
-      <div class="relative mt-2.5 font-sans text-[18px] md:text-[32px]">
-        <!-- 占位符：預留正確空間 -->
+      <div class="relative mt-2.5 font-sans text-[18px] md:text-[22px] lg:text-[32px]">
         <div class="invisible">
           <span class="text-[#82ddcf]">Specializing in Vue.js and Responsive Web Design.</span>
         </div>
-        <!-- 實際文字 -->
         <div class="absolute top-0 left-0">
           <span>{{ line3Display }}</span>
         </div>
@@ -79,19 +74,19 @@ function delay(ms) {
     </h1>
 
     <div
-      class="absolute top-0 right-0 flex h-full w-full max-w-3xl items-start md:right-12 md:items-center"
+      class="absolute top-0 right-0 flex h-full w-full max-w-3xl items-start md:items-center lg:right-12"
     >
       <img
         src="/imgs/me.jpg"
         alt=""
-        class="animate-in fade-in absolute top-[76px] left-[20px] h-[440px] w-[220px] object-cover object-bottom shadow-[20px_10px_0_rgba(205,204,203,0.5)] duration-1000 md:static md:h-[600px] md:w-[300px]"
+        class="animate-in fade-in absolute top-[76px] left-[20px] h-[440px] w-[220px] object-cover object-bottom shadow-[20px_10px_0_rgba(205,204,203,0.5)] duration-1000 md:static md:h-[480px] md:w-[250px] lg:h-[600px] lg:w-[300px]"
       />
 
       <div
-        class="animate-in slide-in-from-top absolute top-37 right-0 flex h-[90px] w-[200px] flex-col items-start justify-center bg-[#ddf0ed] p-6 duration-1800 md:top-0 md:h-[600px] md:w-[400px]"
+        class="animate-in slide-in-from-top absolute top-37 right-0 flex h-[90px] w-[200px] flex-col items-start justify-center bg-[#ddf0ed] p-6 duration-1800 md:top-0 md:h-[480px] md:w-[280px] lg:h-[600px] lg:w-[400px]"
       >
         <p class="text-lg text-gray-500">Hello, I'm</p>
-        <h2 class="text-[28px] leading-tight font-bold md:text-5xl">
+        <h2 class="text-[28px] leading-tight font-bold md:text-[36px] lg:text-5xl">
           Wen Yi <span class="text-[#ffd818]">Hsu</span>
         </h2>
         <button>
