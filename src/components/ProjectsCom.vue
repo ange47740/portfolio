@@ -51,7 +51,16 @@ function closeModal() {
 const projects = [
   {
     title: '盈米科技',
-    tag: ['Web Development', 'UI/UX Design', 'Vue3', 'Tailwind CSS', 'PHP', 'Figma'],
+    tag: [
+      'Web Development',
+      'UI/UX Design',
+      'Vue3',
+      'Tailwind CSS',
+      'TypeScript',
+      'PHP',
+      'Figma',
+      'Google Analytics',
+    ],
     summary:
       '盈米科技官網改版重塑，重新規劃品牌視覺與資訊架構，以未來感與冷靜簡約風格強化專業與科技形象。',
     cover: '/imgs/projects/1/0.jpg',
