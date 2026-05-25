@@ -58,12 +58,12 @@ const projects = [
     link: 'https://twyingmi.com/',
   },
   {
-    title: '待產活力站',
-    tag: ['Web Development', 'UI/UX Design', 'Vue3', 'Bootstrap', 'SCSS', 'Figma'],
+    title: '呂玉玫 電子名片',
+    tag: ['Web Development', 'UI/UX Design', 'Vue3', 'Tailwind CSS', 'TypeScript'],
     summary:
-      '為待產婦女設計的互動式網站，透過互動小遊戲與示範影片，協助使用者理解孕期運動的重要性並探索合適的運動項目。',
+      '打造個人品牌電子名片，整合六間關聯企業、協會資訊與聯絡方式，以深色簡約的設計呈現專業沉穩的視覺風格。',
     cover: '/imgs/projects/5/0.jpg',
-    link: 'https://www.readysetbaby.com.tw/',
+    link: 'https://storage.googleapis.com/yingmigcs/amanda_business_card/index.html',
   },
   {
     title: '松華選材系統',
@@ -247,7 +247,12 @@ const projects = [
         <div v-for="(project, idx) in projects" :key="idx" class="project-card mt-5 flex flex-col">
           <!-- 作品封面 -->
           <div class="w-full overflow-hidden rounded-xl bg-gray-100">
-            <img :src="project.cover" :alt="project.title" loading="lazy" class="w-full rounded-xl object-cover" />
+            <img
+              :src="project.cover"
+              :alt="project.title"
+              loading="lazy"
+              class="w-full rounded-xl object-cover"
+            />
           </div>
 
           <!-- 文字內容 -->
@@ -322,7 +327,10 @@ const projects = [
               <font-awesome-icon :icon="['fab', 'youtube']" />
             </a>
           </div>
-          <button @click="closeModal" class="cursor-pointer text-xl text-white/50 hover:text-white/100">
+          <button
+            @click="closeModal"
+            class="cursor-pointer text-xl text-white/50 hover:text-white/100"
+          >
             ✕
           </button>
         </div>
@@ -337,12 +345,14 @@ const projects = [
           @swiper="setMainSwiper"
           @slide-change="onSlideChange"
         >
-          <SwiperSlide
-            v-for="img in selectedProject?.images"
-            :key="img.src"
-          >
+          <SwiperSlide v-for="img in selectedProject?.images" :key="img.src">
             <div class="flex h-full flex-col items-center justify-center px-12">
-              <img :src="img.src" :alt="img.title" loading="lazy" class="max-h-[65vh] max-w-full object-contain" />
+              <img
+                :src="img.src"
+                :alt="img.title"
+                loading="lazy"
+                class="max-h-[65vh] max-w-full object-contain"
+              />
               <p class="mt-2 text-center text-sm text-white/70">{{ img.title }}</p>
             </div>
           </SwiperSlide>
@@ -357,7 +367,11 @@ const projects = [
             :alt="img.title"
             loading="lazy"
             class="h-20 w-28 flex-shrink-0 cursor-pointer rounded-md border-2 object-cover transition-all duration-200"
-            :class="activeIndex === i ? 'scale-105 border-[#00e3e7] opacity-100' : 'border-transparent opacity-60 hover:opacity-90'"
+            :class="
+              activeIndex === i
+                ? 'scale-105 border-[#00e3e7] opacity-100'
+                : 'border-transparent opacity-60 hover:opacity-90'
+            "
             @click="goToSlide(i)"
           />
         </div>
