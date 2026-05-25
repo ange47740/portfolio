@@ -36,6 +36,15 @@ onMounted(() => {
           <font-awesome-icon :icon="['fab', 'linkedin']" />
           <p class="text-sm font-bold">LinkedIn</p>
         </a>
+        <a
+          href="https://github.com/ange47740"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex w-64 items-center justify-center gap-2 rounded bg-[#F4F4F4] px-4 py-5 text-[#2E2E2E] hover:bg-[#2E2E2E] hover:text-white dark:bg-[#E2E2E2] dark:hover:bg-[#2E2E2E] dark:hover:text-white"
+        >
+          <font-awesome-icon :icon="['fab', 'github']" />
+          <p class="text-sm font-bold">GitHub</p>
+        </a>
       </div>
     </div>
   </section>
