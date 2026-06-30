@@ -50,7 +50,7 @@ function closeModal() {
 
 const projects = [
   {
-    title: '盈米科技',
+    title: '盈米科技 官方形象網站',
     tag: [
       'Web Development',
       'UI/UX Design',
@@ -67,12 +67,12 @@ const projects = [
     link: 'https://twyingmi.com/',
   },
   {
-    title: '呂玉玫 電子名片',
-    tag: ['Web Development', 'UI/UX Design', 'Vue3', 'Tailwind CSS', 'TypeScript'],
+    title: '邑舍設紀 官方形象網站',
+    tag: ['Web Development', 'UI/UX Design', 'jQuery', 'Bootstrap', 'PHP'],
     summary:
-      '打造個人品牌電子名片，整合六間關聯企業、協會資訊與聯絡方式，以深色簡約的設計呈現專業沉穩的視覺風格。',
-    cover: '/imgs/projects/5/0.jpg',
-    link: 'https://storage.googleapis.com/yingmigcs/amanda_business_card/index.html',
+      '協助室內設計品牌官網改版，優化視覺介面與內容架構，提升品牌形象的一致性與使用者瀏覽體驗。',
+    cover: '/imgs/projects/6/0.jpg',
+    link: 'https://www.eshare-id.com/',
   },
   {
     title: '松華選材系統',
@@ -122,29 +122,12 @@ const projects = [
     ],
   },
   {
-    title: '桌遊協會管理系統',
-    tag: ['UI/UX Design', 'Figma'],
+    title: '呂玉玫電子名片',
+    tag: ['Web Development', 'UI/UX Design', 'Vue3', 'Tailwind CSS', 'TypeScript'],
     summary:
-      '為桌遊協會設計的會員與桌遊管理系統，包含會員資料管理、桌遊借還管理、開桌計時與分潤設定等功能，提升協會運營效率。',
-    cover: '/imgs/projects/6/0.jpg',
-    images: [
-      { src: '/imgs/projects/6/1.jpg', title: '登入' },
-      { src: '/imgs/projects/6/2.jpg', title: '註冊' },
-      { src: '/imgs/projects/6/3.jpg', title: '忘記密碼' },
-      { src: '/imgs/projects/6/4.png', title: '會員列表' },
-      { src: '/imgs/projects/6/5.png', title: '新增會員' },
-      { src: '/imgs/projects/6/6.png', title: '編輯會員資料' },
-      { src: '/imgs/projects/6/7.png', title: '綁定的會員' },
-      { src: '/imgs/projects/6/8.png', title: '開桌列表' },
-      { src: '/imgs/projects/6/9.png', title: '設定桌子' },
-      { src: '/imgs/projects/6/10.png', title: '開桌計時' },
-      { src: '/imgs/projects/6/11.png', title: '停止計時' },
-      { src: '/imgs/projects/6/12.png', title: '分潤設定' },
-      { src: '/imgs/projects/6/13.png', title: '手機-登入' },
-      { src: '/imgs/projects/6/14.png', title: '手機 - 會員條碼' },
-      { src: '/imgs/projects/6/15.png', title: '手機 - 綁定的會員' },
-      { src: '/imgs/projects/6/16.png', title: '手機 - 編輯個人資料' },
-    ],
+      '打造個人品牌電子名片，整合六間關聯企業、協會資訊與聯絡方式，以深色簡約的設計呈現專業沉穩的視覺風格。',
+    cover: '/imgs/projects/5/0.jpg',
+    link: 'https://storage.googleapis.com/yingmigcs/amanda_business_card/index.html',
   },
   {
     title: '3D 家具建材互動展示',
