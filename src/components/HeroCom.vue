@@ -89,15 +89,13 @@ function delay(ms) {
         <h2 class="text-[28px] leading-tight font-bold md:text-[36px] lg:text-5xl">
           Wen Yi <span class="text-[#ffd818]">Hsu</span>
         </h2>
-        <button>
-          <a
-            href="/files/Wen_Yi_Hsu_Resume(web).pdf"
-            target="_blank"
-            class="mt-4 inline-block rounded bg-[#82ddcf] px-4 py-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#5ac1b8]"
-          >
-            View Resume
-          </a>
-        </button>
+        <a
+          href="/files/Wen_Yi_Hsu_Resume(web).pdf"
+          target="_blank"
+          class="mt-4 inline-block animate-pulse rounded bg-[#82ddcf] px-4 py-2 text-sm font-medium text-white shadow-md transition-all duration-300 hover:animate-none hover:-translate-y-1 hover:bg-[#5ac1b8] hover:shadow-lg"
+        >
+          View Resume
+        </a>
       </div>
     </div>
   </section>
